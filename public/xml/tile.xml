@@ -1,0 +1,16 @@
+<tile>
+  <visual version="2">
+    <binding template="TileSquare150x150PeekImageAndText04" fallback="TileSquarePeekImageAndText04">
+      <image id="1" src="http://iepm/public/tsurti/khill/image1.png" alt="alt text"/>
+      <text id="1">Text Field 1</text>
+    </binding>  
+    <binding template="TileWide310x150ImageAndText01" fallback="TileWideImageAndText01">
+      <image id="1" src="http://iepm/public/tsurti/khill/image1.png" alt="alt text"/>
+      <text id="1">Text Field 1</text>
+    </binding>  
+    <binding template="TileSquare310x310ImageAndTextOverlay01">
+      <image id="1" src="http://iepm/public/tsurti/khill/image1.png" alt="alt text"/>
+      <text id="1">Text Field 1</text>
+    </binding>  
+  </visual>
+</tile>

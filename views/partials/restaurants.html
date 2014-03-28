@@ -1,0 +1,14 @@
+<div>
+	<div id='timer' class='well'>
+		<span ng-if='timeUntilLunch' class='alert alert-success'>{{ timeUntilLunch | time }}</span>
+		<span ng-if='!timeUntilLunch' class='alert alert-danger'>{{ timeAfterLunch | time }}</span>
+	</div>
+
+	Restaurants:
+	<div class='panel panel-default' ng-repeat='rest in restaurants'>
+		<div class='panel-body'>
+			<span>{{ rest.name }}</span>
+			<span>{{ getDistance(position, rest.location, 'mi') | number:2 }}</span>
+		</div>
+	</div>
+</div>
