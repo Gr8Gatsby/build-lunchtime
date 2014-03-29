@@ -4,7 +4,7 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
 	console.log('lunchtimeAppController started...');
 	function init() {
 		$scope.steps = false;
-
+		$scope.currentModal = 1;
 		AppDataService.getRestaurants().success(function(data){
 			$scope.restaurants = data;
 		});
@@ -55,7 +55,10 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
         //return ({'distance': d, 'units': units});
     }
 
-    $scope.showDetail = function(restaurant) {
-    	alert('show ' + restaurant.name);
+    $scope.getModalRestaurantName = function() {
+    	if($scope.currentModal){
+    		console.log($scope.restaurants);
+    		return ($scope.restaurants[$scope.currentModal].name);
+    	}
     }
 });

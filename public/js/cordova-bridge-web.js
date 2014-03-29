@@ -15,24 +15,27 @@ eventBecon.style.cssText = 'width:1px; height:1px'
             console.log('fire device ready ++++++++++');
             document.dispatchEvent(ReadyEvent);
         };
-
+EB.style.width = "10px";
+EB.style.height = "10px";
+EB.style.border = "5px solid green";
    
 
 
         //geolocation bridge 
-        
-        navigator.geolocation = {};
-        //set up event from result of real geo
-        var geoEvent = document.createEvent('Event');
-        geoEvent.initEvent("geoEvent", true, false);
-        var geoReady = function (evtObj) { document.dispatchEvent(geoEvent, evtObj) };
-        //set up false geoobject
-        navigator.geolocation.getCurrentPosition = function (success, error, options) {
-            console.log('calling the fake geo location');
-            EB.src = 'becon.html?EVENT=geoEvent';
-            document.addEventListener('geoEvent', function (e) {
-                setTimeout(success, 0, geoobj);
-            });
+        if(!navigator.geolocation) {
 
-        };
+            navigator.geolocation = {};
+            //set up event from result of real geo
+            var geoEvent = document.createEvent('Event');
+            geoEvent.initEvent("geoEvent", true, false);
+            var geoReady = function (evtObj) { document.dispatchEvent(geoEvent, evtObj) };
+            //set up false geoobject
+            navigator.geolocation.getCurrentPosition = function (success, error, options) {
+                console.log('calling the fake geo location');
+                EB.src = 'becon.html?EVENT=geoEvent';
+                document.addEventListener('geoEvent', function (e) {
+                    setTimeout(success, 0, geoobj);
+                });
 
+            };
+        };        
