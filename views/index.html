@@ -18,12 +18,14 @@
     <link rel='stylesheet' href='/css/animate.css'/>
   </head>
   <body id='main'>
-    <h3>Welcome to lunchtime</h3>
 
+    <h3>Welcome to lunchtime</h3>
+    <!-- button id="resetTimer">It's lunch time!</button -->
     <!-- Angular View Hodler -->
     <div ng-view></div>
 
     <!-- Angular Framework Code -->
+    <xscript src='js/cordova-bridge-web.js'></script>
     <script src='js/angular/angular.js'></script>
     <script src='js/angular/angular-route.js'></script>
     
@@ -36,5 +38,6 @@
     <!-- Bootstrap -->
     <script src='js/jquery-2.1.0.js'></script>
     <script src='js/bootstrap.js'></script>
+    <xscript src='js/notification.js'></script>
   </body>
 </html>
