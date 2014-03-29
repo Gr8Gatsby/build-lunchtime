@@ -1,14 +1,34 @@
 <div>
-	<div id='timer' class='well'>
-		<span ng-if='timeUntilLunch' class='alert alert-success'>{{ timeUntilLunch | time }}</span>
-		<span ng-if='!timeUntilLunch' class='alert alert-danger'>{{ timeAfterLunch | time }}</span>
+	<div id='timer'>
+		<h4 ng-if='timeUntilLunch' class='alert alert-success'>{{ timeUntilLunch | time }}</h4>
+		<h4 ng-if='!timeUntilLunch' class='alert alert-danger'>{{ timeAfterLunch | time }}</h4>
 	</div>
 
-	Restaurants:
-	<div class='panel panel-default' ng-repeat='rest in restaurants'>
+	
+	<div class='panel panel-default' ng-click='steps = !steps'>
 		<div class='panel-body'>
+			<span ng-show='steps' class='btn btn-default pull-right'>show mi</span>
+			<span ng-show='!steps' class='btn btn-default pull-right'>show steps</span>		
+		</div>
+	</div>
+	
+	<div class='label label-info'>Restaurants</div>
+	<div class='panel panel-default' ng-repeat='rest in restaurants | orderBy:"-distance":true'>
+		<div class='panel-body' data-toggle='modal' href='#responsive'>
 			<span>{{ rest.name }}</span>
-			<span>{{ getDistance(position, rest.location, 'mi') | number:2 }}</span>
+			<span ng-show='steps' class='badge pull-right'>{{ rest.distance * 2350 | number:0 }} steps</span>
+			<span ng-show='!steps' class='badge pull-right'>{{ rest.distance | number:2 }} mi</span>
 		</div>
 	</div>
 </div>
+
+<!-- Model code -->
+<div tabindex="-1" class="modal hide fade" id="static" data-keyboard="false" data-backdrop="static">
+  <div class="modal-body">
+    <p>Would you like to continue with some arbitrary task?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-dismiss="modal">Ok</button>
+  </div>
+</div>
+

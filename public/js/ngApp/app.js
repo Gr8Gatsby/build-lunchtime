@@ -4,7 +4,7 @@ var app = angular.module('lunchtimeApp', ['ngRoute', 'lunchtime.filters']);
 
 app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider
-	.when('/lunch', {
+	.when('/', {
 		controller:'lunchtimeAppController',
 		templateUrl: '/partials/restaurants'	
 	});
@@ -58,27 +58,16 @@ function updateModel(element_id, callback) {
     }
 }
 
-// Calculate Distance between the user and a restaurant
-var getDistance = function(originLocation, destinationLocation, units) {
-        if(!originLocation) {
-            return NaN;
-        }
-        var R;
-        if(units === 'mi'){
-            R = 3959;    // miles
-        } else if (units === 'km') {
-            R = 6371;   // kilometers (default)
-        } else if (units === 'ft') {
-            R = 20903520;
-        }
-        var dLat = (destinationLocation.latitude - originLocation.latitude).toRad();
-        var dLon = (destinationLocation.longitude - originLocation.longitude).toRad();
-        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.cos(originLocation.latitude.toRad()) * Math.cos(destinationLocation.latitude.toRad()) *
-                Math.sin(dLon/2) * Math.sin(dLon/2);
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        var d = R * c;
+Number.prototype.toRad = function() {  // convert degrees to radians
+  return this * Math.PI / 180;
+}
 
-        return d;
-        //return ({'distance': d, 'units': units});
-    }
+
+Number.prototype.toDeg = function() {  // convert radians to degrees (signed)
+  return this * 180 / Math.PI;
+}
+
+
+Number.prototype.toBrng = function() {  // convert radians to degrees (as bearing: 0...360)
+  return (this.toDeg()+360) % 360;
+}

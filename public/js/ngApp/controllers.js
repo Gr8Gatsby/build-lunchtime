@@ -3,6 +3,8 @@
 app.controller('lunchtimeAppController', function($scope, AppDataService) {
 	console.log('lunchtimeAppController started...');
 	function init() {
+		$scope.steps = false;
+
 		AppDataService.getRestaurants().success(function(data){
 			$scope.restaurants = data;
 		});
@@ -10,7 +12,11 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
 		AppDataService.location().then(function (position) {
 			$scope.position = {latitude : position.coords.latitude, longitude : position.coords.longitude };
 			$scope.positionLastUpdated = {timestamp: position.timestamp};
-			console.log(position.timestamp + ': ' + position.coords.latitude + ',' + position.coords.longitude);
+			
+			for(var each in $scope.restaurants) {
+				var loc = $scope.restaurants[each].location;
+				$scope.restaurants[each].distance = $scope.getDistance(loc, $scope.position, 'mi');
+			}
 		// On error
 		}, function (reason) {
 			console.log(reason);
@@ -21,4 +27,35 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
 	};
 
 	init();
+
+	// Calculate Distance between the user and a restaurant
+	$scope.getDistance = function(originLocation, destinationLocation, units) {
+        if(!originLocation) {
+            return NaN;
+        }
+        
+        var R = 0;
+
+        if(units === 'mi'){
+            R = 3959;    // miles
+        } else if (units === 'km') {
+            R = 6371;   // kilometers (default)
+        } else if (units === 'ft') {
+            R = 20903520;
+        }
+        var dLat = (destinationLocation.latitude - originLocation.latitude).toRad();
+        var dLon = (destinationLocation.longitude - originLocation.longitude).toRad();
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(originLocation.latitude.toRad()) * Math.cos(destinationLocation.latitude.toRad()) *
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var d = R * c;
+
+        return d;
+        //return ({'distance': d, 'units': units});
+    }
+
+    $scope.showDetail = function(restaurant) {
+    	alert('show ' + restaurant.name);
+    }
 });
