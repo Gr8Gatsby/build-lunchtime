@@ -15,7 +15,12 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
 			
 			for(var each in $scope.restaurants) {
 				var loc = $scope.restaurants[each].location;
-				$scope.restaurants[each].distance = $scope.getDistance(loc, $scope.position, 'mi');
+				if(loc) {
+					$scope.restaurants[each].distance = $scope.getDistance(loc, $scope.position, 'mi');
+				}
+				else {
+					$scope.restaurants[each].distance = 0;	
+				}
 			}
 		// On error
 		}, function (reason) {
