@@ -22,6 +22,7 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
+app.use(express.favicon(__dirname + '/public/favicon.ico')); 
 
 // development only
 if ('development' == app.get('env')) {
@@ -32,6 +33,7 @@ app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 app.get('/restaurants', api.restaurants);
 app.get('/preferences', api.preferences);
+app.get('/mediaAttribution', api.mediaAttribution);
 app.get('/tile', api.tile);
 app.get('*', routes.index)
 

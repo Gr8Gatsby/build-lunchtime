@@ -8,11 +8,11 @@ exports.restaurants = function(req, res){
 	res.json(
     [{
       'id':3,
-      'name':'Sage Cafe',
+      'name':'Chez Maman',
       'location':
         {
-          'latitude' : 37.778023,
-          'longitude': -122.422500
+          'latitude' : 37.762539,
+          'longitude': -122.397432
         },
       'distance': 0
     },
@@ -28,11 +28,11 @@ exports.restaurants = function(req, res){
     },
     {
       'id':2,
-      'name':'Zuni Cafe',
+      'name':'Pizzeria Delfina',
       'location':
         {
-          'latitude' : 37.773372,
-          'longitude': -122.421663
+          'latitude' : 37.761860,
+          'longitude': -122.424726
         },
       'distance': 0
     }]
@@ -45,4 +45,23 @@ exports.preferences = function(req, res){
     [{ 'id' : 1 },
     { 'id' : 3 }]
   );
+};
+
+exports.mediaAttribution = function(req, res){
+  res.json(
+    [{
+        symbol:"img/.png", 
+        attributionLink:"http://thenounproject.com/term/bowl/1462/", 
+        designer:"Maurizio Pedrazzoli"
+    },
+    {
+        symbol:"", 
+        attributionLink:"", 
+        designer:""
+    },
+    {
+        symbol:"", 
+        attributionLink:"", 
+        designer:""
+    }]);
 };

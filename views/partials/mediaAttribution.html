@@ -1,0 +1,8 @@
+<div>
+	<div id='timer'>
+		<h4 ng-if='timeUntilLunch' class='alert alert-success'>{{ timeUntilLunch | time }}</h4>
+		<h4 ng-if='!timeUntilLunch' class='alert alert-danger'>{{ timeAfterLunch | time }}</h4>
+	</div>
+	<a href='/'>Back</a>
+	<h1>Credits</h1>
+</div>
