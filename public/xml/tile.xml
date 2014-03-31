@@ -1,16 +1,20 @@
 <tile>
   <visual version="2">
     <binding template="TileSquare150x150PeekImageAndText04" fallback="TileSquarePeekImageAndText04">
-      <image id="1" src="http://iepm/public/tsurti/khill/image1.png" alt="alt text"/>
-      <text id="1">Text Field 1</text>
+      <image id="1" src="https://build-lunchtime.azurewebsites.net/img/square150x150logo.png" alt="It's lunchtime! square tile preview"/>
+      <text id="1">It's lunchtime</text>
+      <text id="2">Don't forget to eat</text>
     </binding>  
     <binding template="TileWide310x150ImageAndText01" fallback="TileWideImageAndText01">
-      <image id="1" src="http://iepm/public/tsurti/khill/image1.png" alt="alt text"/>
-      <text id="1">Text Field 1</text>
+      <image id="1" src="https://build-lunchtime.azurewebsites.net/img/wide310x150logo.png" alt="It's lunchtime! wide tile preview"/>
+      <text id="1">It's lunchtime! Don't forget to eat</text>
+      <text id="2">Checkout your favorite places</text>
     </binding>  
     <binding template="TileSquare310x310ImageAndTextOverlay01">
-      <image id="1" src="http://iepm/public/tsurti/khill/image1.png" alt="alt text"/>
-      <text id="1">Text Field 1</text>
+      <image id="1" src="https://build-lunchtime.azurewebsites.net/img/square310x310logo.png" alt="It's lunchtime! large tile preview"/>
+      <text id="1">It's lunchtime</text>
+      <text id="2">Don't forget to eat</text>
+      <text id="3">Checkout your favorite places</text>
     </binding>  
   </visual>
 </tile>

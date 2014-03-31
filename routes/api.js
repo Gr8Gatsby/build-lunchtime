@@ -1,10 +1,15 @@
 var path = require('path');
 
-exports.tile = function(req, res){
+exports.tile = function(req, res) {
 	res.sendfile(path.join(__dirname, '../public/xml/tile.xml'));
 };
 
-exports.restaurants = function(req, res){
+exports.img = function(req, res) {
+  var imgName = req.param('name');
+  res.sendfile(path.join(__dirname, '../public/img/' + imgName));
+}
+
+exports.restaurants = function(req, res) {
   res.json(
     [{
       'id':3,
@@ -40,14 +45,14 @@ exports.restaurants = function(req, res){
   );
 };
 
-exports.preferences = function(req, res){
+exports.preferences = function(req, res) {
   res.json(
     [{ 'id' : 1 },
     { 'id' : 3 }]
   );
 };
 
-exports.mediaAttribution = function(req, res){
+exports.mediaAttribution = function(req, res) {
   res.json(
     [{
         symbol:"img/bowl.png", 
