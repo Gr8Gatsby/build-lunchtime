@@ -4,5 +4,14 @@
 		<h4 ng-if='!timeUntilLunch' class='alert alert-danger'>{{ timeAfterLunch | time }}</h4>
 	</div>
 	<a href='/'>Back</a>
-	<h1>Credits</h1>
+	<h4>Media credits</h4>
+	<div class='btn-group btn-group-justified' ng-repeat='media in mediaAttribution'>
+		<div class='btn-group'>
+			<a ng-href='{{media.attributionLink}}' target='_blank'>
+				<div class='btn btn-primary'>
+					<img src='{{media.symbol}}'/> {{media.designer}}
+			 	</div>
+			</a>
+		</div>
+	</div>
 </div>

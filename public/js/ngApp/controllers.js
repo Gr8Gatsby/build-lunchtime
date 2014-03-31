@@ -4,17 +4,23 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
 	console.log('lunchtimeAppController started...');
 	function init() {
 		$scope.steps = false;
-		$scope.currentModal = 1;
+		// load the restaurant data from teh factory into the view model
 		AppDataService.getRestaurants().success(function(data){
 			$scope.restaurants = data;
 		});
-
+		// load the media attribution data from the factory into the view model
+		AppDataService.getMediaAttribution().success(function(data){
+			$scope.mediaAttribution = data; 
+		});
+		// load restaurant data from the factory into the view model
 		AppDataService.location().then(function (position) {
 			$scope.position = {latitude : position.coords.latitude, longitude : position.coords.longitude };
 			$scope.positionLastUpdated = {timestamp: position.timestamp};
 			
+			// Add distance from user to the restaurant data
 			for(var each in $scope.restaurants) {
 				var loc = $scope.restaurants[each].location;
+				// if user location is available
 				if(loc) {
 					$scope.restaurants[each].distance = $scope.getDistance(loc, $scope.position, 'mi');
 				}
@@ -57,13 +63,5 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
         var d = R * c;
 
         return d;
-        //return ({'distance': d, 'units': units});
-    }
-
-    $scope.getModalRestaurantName = function() {
-    	if($scope.currentModal){
-    		console.log($scope.restaurants);
-    		return ($scope.restaurants[$scope.currentModal].name);
-    	}
     }
 });

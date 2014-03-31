@@ -14,9 +14,8 @@
 
     <!-- Share Charm -->
     <meta name='title' content='Lunchtime App'>
-    <meta name='description' content='Get notifications about Lunchtime'>
-    <meta property='og:image' content='img/icon_1462/icon_1462.png'>
-    <meta name='image' content='img/icon_1462/icon_1462.png'>
+    <meta name='description' content='The app that helps you remember lunch!'>
+    <meta property='og:image' content='https://build-lunchtime.azurewebsites.net/img/bowl.png'>
     
     <!-- Info for iOS -->
 
@@ -30,26 +29,26 @@
   </head>
   <body id='main'>
 
-    <h3>Welcome to lunchtime</h3>
-    <button id='resetTimer' class='text-center btn-lg btn-warning'>It's lunch time!</button>
+    <h3><img src='img/bowl.png'/> Welcome to lunchtime</h3>
+    <!-- <button id='resetTimer' class='text-center btn-lg btn-warning'>It's lunch time!</button> -->
 
     <!-- Angular View Hodler -->
     <div ng-view></div>
 
     <!-- Angular Framework Code -->
-    <script src='js/cordova-bridge-web.js'></script>
+    <Xscript src='js/cordova-bridge-web.js'></script>
     <script src='js/angular/angular.js'></script>
     <script src='js/angular/angular-route.js'></script>
     
     <!-- Angular App Code -->
     <script src='js/ngApp/app.js'></script>
     <script src='js/ngApp/controllers.js'></script>
-    
     <script src='js/ngApp/factories.js'></script>
     <script src='js/ngApp/filters.js'></script>
+
     <!-- Bootstrap -->
     <script src='js/jquery-2.1.0.js'></script>
     <script src='js/bootstrap.js'></script>
-    <script src='js/notification.js'></script>
+    <Xscript src='js/notification.js'></script>
   </body>
 </html>

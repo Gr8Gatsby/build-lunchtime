@@ -5,7 +5,7 @@ exports.tile = function(req, res){
 };
 
 exports.restaurants = function(req, res){
-	res.json(
+  res.json(
     [{
       'id':3,
       'name':'Chez Maman',
@@ -50,18 +50,13 @@ exports.preferences = function(req, res){
 exports.mediaAttribution = function(req, res){
   res.json(
     [{
-        symbol:"img/.png", 
+        symbol:"img/bowl.png", 
         attributionLink:"http://thenounproject.com/term/bowl/1462/", 
         designer:"Maurizio Pedrazzoli"
     },
     {
-        symbol:"", 
-        attributionLink:"", 
-        designer:""
-    },
-    {
-        symbol:"", 
-        attributionLink:"", 
-        designer:""
+        symbol:"img/tires.png", 
+        attributionLink:"http://thenounproject.com/term/tire/13829/", 
+        designer:"Veselin Andreev"
     }]);
 };
