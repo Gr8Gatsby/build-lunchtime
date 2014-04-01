@@ -1,8 +1,6 @@
-
 /**
  * Module dependencies.
  */
-
 var express = require('express');
 var routes = require('./routes');
 var api = require('./routes/api');
@@ -22,6 +20,7 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
+app.use(express.favicon(__dirname + '/public/favicon.ico')); 
 
 // development only
 if ('development' == app.get('env')) {
@@ -32,10 +31,9 @@ app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 app.get('/restaurants', api.restaurants);
 app.get('/preferences', api.preferences);
+app.get('/mediaAttribution', api.mediaAttribution);
 app.get('/tile', api.tile);
-app.get('*', routes.index)
-
-//app.get('*', routes.index);
+app.get('*', routes.index);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

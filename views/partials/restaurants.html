@@ -1,34 +1,26 @@
 <div>
 	<div id='timer'>
-		<h4 ng-if='timeUntilLunch' class='alert alert-success'>{{ timeUntilLunch | time }}</h4>
-		<h4 ng-if='!timeUntilLunch' class='alert alert-danger'>{{ timeAfterLunch | time }}</h4>
+		<h4 ng-if='timeUntilLunch' class='alert alert-success'>{{ timeUntilLunch | time }} until lunch.</h4>
+		<h4 ng-if='!timeUntilLunch' class='alert alert-danger'>{{ timeAfterLunch | time }} after lunch.</h4>
 	</div>
-
 	
-	<div class='panel panel-default' ng-click='steps = !steps'>
+	
+<!-- 	<div class='panel panel-default' ng-click='steps = !steps'>
 		<div class='panel-body'>
-			<span ng-show='steps' class='btn btn-default pull-right'>show mi</span>
-			<span ng-show='!steps' class='btn btn-default pull-right'>show steps</span>		
+			<span ng-show='steps' class='btn btn-default pull-right'> <img src='img/tires.png'/> show miles</span>
+			<span ng-show='!steps' class='btn btn-default pull-right'> <img src='img/steps.png'/> show steps</span>
 		</div>
-	</div>
+	</div> -->
 	
-	<div class='label label-info'>Restaurants</div>
-	<div class='panel panel-default' ng-repeat='rest in restaurants | orderBy:"-distance":true'>
-		<div class='panel-body' data-toggle='modal' href='#responsive'>
+
+	<h4 class='animated fadeIn'>Restaurants</h4>
+
+	<div class='animated bounceInLeft panel panel-default' ng-repeat='rest in restaurants | orderBy:"-distance":true'>
+		<div class='panel-body bg-primary active'>
 			<span>{{ rest.name }}</span>
-			<span ng-show='steps' class='badge pull-right'>{{ rest.distance * 2350 | number:0 }} steps</span>
-			<span ng-show='!steps' class='badge pull-right'>{{ rest.distance | number:2 }} mi</span>
+			<span ng-show='steps' class='pull-right'>{{ rest.distance * 2350 | number:0 }} steps</span>
+			<span ng-show='!steps' class='pull-right'>{{ rest.distance | number:2 }} miles</span>
 		</div>
 	</div>
+	<a href='/media'>Credits</a>
 </div>
-
-<!-- Model code -->
-<div tabindex="-1" class="modal hide fade" id="static" data-keyboard="false" data-backdrop="static">
-  <div class="modal-body">
-    <p>Would you like to continue with some arbitrary task?</p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-primary" type="button" data-dismiss="modal">Ok</button>
-  </div>
-</div>
-

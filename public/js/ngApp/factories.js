@@ -1,8 +1,13 @@
 app.factory('AppDataService', function($http, $q, $window, $rootScope) {
 	var factory = {};
-	factory.getRestaurants = function() {
+	// Get the restaurant data
+    factory.getRestaurants = function() {
 		return $http.get('/restaurants');
 	};
+    // Get media attribution data
+    factory.getMediaAttribution = function() {
+        return $http.get('/mediaAttribution');
+    };
 
 	// Get the user location from Browser geolocation object
 	factory.location = function(){

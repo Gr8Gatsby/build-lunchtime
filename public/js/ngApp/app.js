@@ -7,6 +7,9 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider, $loca
 	.when('/', {
 		controller:'lunchtimeAppController',
 		templateUrl: '/partials/restaurants'	
+	}).when('/media', {
+		controller:'lunchtimeAppController',
+		templateUrl: '/partials/mediaAttribution'	
 	});
 
 	$locationProvider.html5Mode(true);

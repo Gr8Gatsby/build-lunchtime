@@ -15,7 +15,9 @@ eventBecon.style.cssText = 'width:1px; height:1px'
             console.log('fire device ready ++++++++++');
             document.dispatchEvent(ReadyEvent);
         };
-
+EB.style.width = "10px";
+EB.style.height = "10px";
+EB.style.border = "5px solid green";
    
 
 

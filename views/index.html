@@ -1,31 +1,54 @@
+<!-- http://aka.ms/lunchtime -->
 <!DOCTYPE html>
 <html ng-app='lunchtimeApp'>
   <head>
     <title>Lunchtime App</title>
-    
-    <!-- Standard Meta Tags to get great content in Modern Browsers -->
+
+    <!-- Common Meta Tags to get great content in Modern Browsers -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- General CSS styling -->
+    <!-- Live Tile Images (http://www.buildmypinnedsite.com/en) -->
 
+    <meta name='application-name' content="It's Lunchtime">
+    <meta name='msapplication-TileColor' content='#40eb5f'>
+    <meta name='msapplication-square70x70logo' content='img/square70x70logo.png'>
+    <meta name='msapplication-square150x150logo' content='img/square150x150logo.png'>
+    <meta name='msapplication-wide310x150logo' content='img/wide310x150logo.png'>
+    <meta name='msapplication-square310x310logo' content='img/square310x310logo.jpg'>
+
+    <!-- Live Tile Data (http://aka.ms/tile) -->
+    <meta name="msapplication-notification" content="frequency=30;polling-uri=https://build-lunchtime.azurewebsites.net/xml/tile.xml; cycle=1"/>
+
+    <!-- Share Charm -->
+    <meta name='title' content="It's Lunchtime">
+    <meta name='description' content='The app that helps you remember lunch!'>
+    <meta property='og:image' content='http://build-lunchtime.azurewebsites.net/img/square150x150logo.png'>
+    <meta property='og:image' content='http://build-lunchtime.azurewebsites.net/img/square70x70logo.png'>
+    
+    <!-- Info for iOS -->
+    <link rel="apple-touch-icon" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon.png">  
+    <link rel="apple-touch-icon" sizes="72x72" href=>  
+    <link rel="apple-touch-icon" sizes="114x114" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon-114x114.png">  
+
+    <!-- General CSS styling -->
+    <link rel='stylesheet' href='/css/normalize.css'/>
     <link rel='stylesheet' href='/css/style.css' />
     <link rel='stylesheet' href='/css/bootstrap.css'/>
     <link rel='stylesheet' href='/css/bootstrap-theme.css'/>
-    <link rel='stylesheet' href='/css/bootstrap-modal.css'/>
-    <link rel='stylesheet' href='/css/bootstrap-modal-bs3patch.css'/>
     <link rel='stylesheet' href='/css/animate.css'/>
   </head>
   <body id='main'>
 
-    <h3>Welcome to lunchtime</h3>
-    <!-- button id="resetTimer">It's lunch time!</button -->
-    <!-- Angular View Hodler -->
+    <h3><img class='logo img-circle float-left' src='img/square150x150logo.png'/> <span>Welcome to lunchtime</span></h3>
+    <button id='resetTimer' class='text-center btn-lg btn-warning'>It's lunch time!</button> 
+
+    <!-- Angular View Holder -->
     <div ng-view></div>
 
     <!-- Angular Framework Code -->
-    <xscript src='js/cordova-bridge-web.js'></script>
+    <script src='js/cordova-bridge-web.js'></script>
     <script src='js/angular/angular.js'></script>
     <script src='js/angular/angular-route.js'></script>
     
@@ -38,6 +61,6 @@
     <!-- Bootstrap -->
     <script src='js/jquery-2.1.0.js'></script>
     <script src='js/bootstrap.js'></script>
-    <xscript src='js/notification.js'></script>
+    <script src='js/notification.js'></script>
   </body>
 </html>
