@@ -20,7 +20,7 @@ eventBecon.style.cssText = 'width:1px; height:1px'
 
 
         //geolocation bridge 
-        
+        if(!navigator.geolocation){
         navigator.geolocation = {};
         //set up event from result of real geo
         var geoEvent = document.createEvent('Event');
@@ -36,3 +36,4 @@ eventBecon.style.cssText = 'width:1px; height:1px'
 
         };
 
+    };
