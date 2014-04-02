@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Live Tile Images (http://www.buildmypinnedsite.com/en) -->
+    <!-- Live Tile Images (http://www.buildmypinnedsite.com/en) "tile" -->
 
     <meta name='application-name' content="It's Lunchtime">
     <meta name='msapplication-TileColor' content='#40eb5f'>
@@ -18,19 +18,20 @@
     <meta name='msapplication-wide310x150logo' content='img/wide310x150logo.png'>
     <meta name='msapplication-square310x310logo' content='img/square310x310logo.jpg'>
 
-    <!-- Live Tile Data (http://aka.ms/tile) -->
+    <!-- Live Tile Data (http://aka.ms/tile) "live" -->
     <meta name="msapplication-notification" content="frequency=30;polling-uri=https://build-lunchtime.azurewebsites.net/xml/tile.xml; cycle=1"/>
 
-    <!-- Share Charm -->
+    <!-- Share Charm "share"-->
     <meta name='title' content="It's Lunchtime">
     <meta name='description' content='The app that helps you remember lunchtime!'>
     <meta property='og:image' content='http://build-lunchtime.azurewebsites.net/img/square150x150logo.png'>
     <meta property='og:image' content='http://build-lunchtime.azurewebsites.net/img/square70x70logo.png'>
     
     <!-- Info for iOS -->
-    <link rel="apple-touch-icon" href="">  
-    <link rel="apple-touch-icon" sizes="72x72" href="">  
-    <link rel="apple-touch-icon" sizes="114x114" href="">  
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png" /> 
+    <link rel="apple-touch-icon" sizes="76x76" href="img/touch-icon-ipad.png" /> 
+    <link rel="apple-touch-icon" sizes="120x120" href="img/touch-icon-iphone-retina.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="img/touch-icon-ipad-retina.png" /> 
 
     <!-- General CSS styling -->
     <link rel='stylesheet' href='/css/normalize.css'/>
@@ -42,14 +43,14 @@
   <body id='main'>
 
     <h3><img class='logo img-circle float-left' src='img/square150x150logo.png'/> <span>Welcome to lunchtime</span></h3>
-    <button id='resetTimer' class='text-center btn-lg btn-warning'>It's lunch time!</button>
+    <!-- <button id='resetTimer' class='text-center btn-lg btn-warning'>It's lunch time!</button> -->
     
 
     <!-- Angular View Holder -->
     <div ng-view></div>
 
     <!-- Angular Framework Code -->
-    <script src='js/cordova-bridge-web.js'></script>
+    <Xscript src='js/win8-bridge-web.js'></script>
     <script src='js/angular/angular.js'></script>
     <script src='js/angular/angular-route.js'></script>
     
@@ -62,6 +63,6 @@
     <!-- Bootstrap -->
     <script src='js/jquery-2.1.0.js'></script>
     <script src='js/bootstrap.js'></script>
-    <script src='js/notification.js'></script>
+    <Xscript src='js/notification.js'></script>
   </body>
 </html>
