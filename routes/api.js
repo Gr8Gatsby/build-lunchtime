@@ -68,5 +68,10 @@ exports.mediaAttribution = function(req, res) {
         symbol:"img/attr/dontbeinahurry.png",
         attributionLink:"http://www.colourlovers.com/patterns/search?query=dontbeinsuchahurry",
         designer:"ravennight & dazzelment"
+    },
+    {
+      symbol:"img/attr/mfgcjbn.png",
+      attributionLink:"http://www.colourlovers.com/pattern/4228872/mfgcjbn",
+      designer:"grail143@gmail.com"
     }]);
 };
