@@ -63,5 +63,10 @@ exports.mediaAttribution = function(req, res) {
         symbol:"img/tires.png", 
         attributionLink:"http://thenounproject.com/term/tire/13829/", 
         designer:"Veselin Andreev"
+    },
+    {
+        symbol:"img/attr/dontbeinahurry.png",
+        attributionLink:"http://www.colourlovers.com/patterns/search?query=dontbeinsuchahurry",
+        designer:"ravennight & dazzelment"
     }]);
 };
