@@ -18,15 +18,20 @@ app.factory('AppDataService', function($http, $q, $window, $rootScope) {
                 deferred.reject(new Error("Geolocation is not supported"));
             });
         } else {
-            $window.navigator.geolocation.getCurrentPosition(function (position) {
+            $window.navigator.geolocation.getCurrentPosition(
+                // Success
+                function (position) {
                 $rootScope.$apply(function() {
                     deferred.resolve(position);
                 });
+            //Error
             }, function (error) {
                 $rootScope.$apply(function() {
                     deferred.reject(error);
                 });
-            });
+            },
+            //Options
+            {enableHighAccuracy:true});
         }
 
         return deferred.promise;
