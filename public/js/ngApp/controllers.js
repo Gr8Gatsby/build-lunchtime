@@ -4,7 +4,7 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
 	console.log('lunchtimeAppController started...');
 	function init() {
 		$scope.steps = false;
-		// load the restaurant data from teh factory into the view model
+		// load the restaurant data from the factory into the view model
 		AppDataService.getRestaurants().success(function(data){
 			$scope.restaurants = data;
 		});
