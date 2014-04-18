@@ -53,15 +53,13 @@ exports.restaurants = function(req, res) {
 };
 
 exports.yelpSearch = function(req, res){
-  // var latitude = req.param('lat');
-  // var longitude = req.param('long');
-  // var ll = latitude + ',' + longitude;
+  var llData = req.param('latitude') + ',' + req.param('longitude');
   
   // yelp.search({term: "food", location:"Houston"}, function(error, data) {
   //   res.json(data);
   // });
 
-  yelp.search({term: "food", ll: "37.762539,-122.397432", limit: 3, sort:2}, function(error, data) {
+  yelp.search({term: "food", ll: llData, limit: 3, sort:2}, function(error, data) {
     res.json(data);
   });
 
