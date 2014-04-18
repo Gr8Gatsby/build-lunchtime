@@ -53,9 +53,16 @@ exports.restaurants = function(req, res) {
 };
 
 exports.yelpSearch = function(req, res){
-  yelp.search({term: "food", location: "Houston", limit: 3, sort:2}, function(error, data) {
+  var latitude = req.param('lat');
+  var Longitude = req.param('long')
+
+  yelp.search({'term': 'food', 'lat': latitude, 'long':longitude, 'limit': 3, radius:5}, function(error, data) {
     res.json(data);
   });
+
+  // yelp.search({term: "food", location: "Houston", limit: 3, sort:2}, function(error, data) {
+  //   res.json(data);
+  // });
 }
 
 exports.preferences = function(req, res) {
