@@ -57,13 +57,13 @@ exports.yelpSearch = function(req, res){
   // var longitude = req.param('long');
   // var ll = latitude + ',' + longitude;
   
-  yelp.search({term: "food", location:"Houston"}, function(error, data) {
-    res.json(data);
-  });
-
-  // yelp.search({term: "food", location: "Houston", limit: 3, sort:2}, function(error, data) {
+  // yelp.search({term: "food", location:"Houston"}, function(error, data) {
   //   res.json(data);
   // });
+
+  yelp.search({term: "food", location: "Houston", limit: 3, sort:2}, function(error, data) {
+    res.json(data);
+  });
 }
 
 exports.preferences = function(req, res) {
