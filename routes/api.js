@@ -61,9 +61,13 @@ exports.yelpSearch = function(req, res){
   //   res.json(data);
   // });
 
-  yelp.search({term: "food", location: "Houston", limit: 3, sort:2}, function(error, data) {
+  yelp.search({term: "food", ll: "37.762539,-122.397432", limit: 3, sort:2}, function(error, data) {
     res.json(data);
   });
+
+  // yelp.search({term: "food", location: "Houston", limit: 3, sort:2}, function(error, data) {
+  //   res.json(data);
+  // });
 }
 
 exports.preferences = function(req, res) {
