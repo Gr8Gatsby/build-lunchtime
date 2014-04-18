@@ -2,7 +2,8 @@ app.factory('AppDataService', function($http, $q, $window, $rootScope) {
 	var factory = {};
 	// Get the restaurant data
     factory.getRestaurants = function() {
-		return $http.get('/restaurants');
+		var rest = $http.get('/restaurants');
+        return rest;
 	};
     // Get media attribution data
     factory.getMediaAttribution = function() {
