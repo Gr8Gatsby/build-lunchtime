@@ -42,5 +42,10 @@ app.factory('AppDataService', function($http, $q, $window, $rootScope) {
 		return $http.get('/preferences');
 	}
 
+    factory.getYelpRestaurants = function(latitude,longitude) {
+        var yelpData = $http.get('/yelpSearch/' + latitude + '/' + longitude);
+        return yelpData;
+    }
+
 	return factory;
 });
