@@ -1,4 +1,11 @@
 var path = require('path');
+var yelp = require('../public/js/yelp/yelp-server').createClient({
+  consumer_key: process.env.yelp_consumer_key,
+  consumer_secret: process.env.yelp_consumer_secret,
+  token: process.env.yelp_token,
+  token_secret: process.env.yelp_token_secret,
+  ssl: true
+});
 
 exports.tile = function(req, res) {
 	res.sendfile(path.join(__dirname, '../public/xml/tile.xml'));
@@ -44,6 +51,12 @@ exports.restaurants = function(req, res) {
     
   );
 };
+
+exports.yelpSearch = function(req, res){
+  yelp.search({term: "food", location: "Houston", limit: 3, sort:2}, function(error, data) {
+    res.json(data);
+  });
+}
 
 exports.preferences = function(req, res) {
   res.json(

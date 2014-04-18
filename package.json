@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "express": "3.4.8",
-    "ejs": "*"
+    "ejs": "*",
+    "oauth": ">=0.9.0 <1.0.0"
   }
 }
