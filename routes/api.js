@@ -54,7 +54,7 @@ exports.restaurants = function(req, res) {
 
 exports.yelpSearch = function(req, res){
   var latitude = req.param('lat');
-  var Longitude = req.param('long')
+  var longitude = req.param('long')
 
   yelp.search({'term': 'food', 'lat': latitude, 'long':longitude, 'limit': 3, radius:5}, function(error, data) {
     res.json(data);
