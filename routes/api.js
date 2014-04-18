@@ -56,7 +56,8 @@ exports.yelpSearch = function(req, res){
   var llData = req.param('latitude') + ',' + req.param('longitude');
 
   yelp.search({term: "food", ll: llData, limit: 3, sort:2}, function(error, data) {
-    res.json([data]);
+    
+    res.json([].push(data));
   });
 }
 
