@@ -57,7 +57,7 @@ exports.yelpSearch = function(req, res){
   var longitude = req.param('long')
   
   var ll = latitude + ',' + longitude
-  yelp.search({'term': 'food', 'll': ll, 'limit': 3, }, function(error, data) {
+  yelp.search({'term': 'food', 'll': ll, 'limit': 3 }, function(error, data) {
     if(error) {
       console.log(error);
     }
