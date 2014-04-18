@@ -17,7 +17,9 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
 			$scope.position = {latitude : position.coords.latitude, longitude : position.coords.longitude };
 			$scope.positionLastUpdated = {timestamp: position.timestamp};
 			
-			$scope.yelpData = AppDataService.getYelpRestaurants(position.coords.latitude, position.coords.longitude);
+			AppDataService.getYelpRestaurants(position.coords.latitude, position.coords.longitude).success(function(data) {
+				$scope.yelpData = data;
+			});
 
 			// Add distance from user to the restaurant data
 			for(var each in $scope.restaurants) {
