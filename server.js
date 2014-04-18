@@ -32,7 +32,7 @@ app.get('/partials/:name', routes.partials);
 app.get('/restaurants', api.restaurants);
 app.get('/preferences', api.preferences);
 app.get('/mediaAttribution', api.mediaAttribution);
-app.get('/yelpSearch/:lat/:long/', api.yelpSearch);
+app.get('/yelpSearch/:lat/:long', api.yelpSearch);
 app.get('/tile', api.tile);
 app.get('*', routes.index);
 
