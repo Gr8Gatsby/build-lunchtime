@@ -53,9 +53,9 @@ exports.restaurants = function(req, res) {
 };
 
 exports.yelpSearch = function(req, res){
-  var latitude = req.param('lat');
-  var longitude = req.param('long');
-  var ll = latitude + ',' + longitude;
+  // var latitude = req.param('lat');
+  // var longitude = req.param('long');
+  // var ll = latitude + ',' + longitude;
   
   yelp.search({term: "food", location:"Houston"}, function(error, data) {
     res.json(data);
