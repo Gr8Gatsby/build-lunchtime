@@ -57,7 +57,7 @@ exports.yelpSearch = function(req, res){
   var longitude = req.param('long');
   var ll = latitude + ',' + longitude;
   
-  yelp.search({term: 'food', location:'Houston'}, function(error, data) {
+  yelp.search({term: "food", location:"Houston"}, function(error, data) {
     res.json(data);
   });
 
