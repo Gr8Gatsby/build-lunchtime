@@ -1,9 +1,19 @@
 var path = require('path');
-var yelp = require('../public/js/yelp/yelp-server').createClient({
-  consumer_key: process.env.yelp_consumer_key,
-  consumer_secret: process.env.yelp_consumer_secret,
-  token: process.env.yelp_token,
-  token_secret: process.env.yelp_token_secret,
+var nconf = require('nconf');
+ 
+nconf.file('settings.json')
+     .env();
+var yelp_consumer_key = nconf.get("yelp_consumer_key");
+var yelp_consumer_secret = nconf.get("yelp_consumer_secret");
+var yelp_token = nconf.get("yelp_token");
+var yelp_token_secret = nconf.get("yelp_token_secret")
+//console.log(nconf.get("yelp_consumer_key"));
+
+var yelp = require('../public/js/yelp/yelp-server').createClient({  
+  consumer_key: yelp_consumer_key,
+  consumer_secret: yelp_consumer_secret,
+  token: yelp_token,
+  token_secret: yelp_token_secret,
   ssl: true
 });
 
@@ -56,8 +66,7 @@ exports.yelpSearch = function(req, res){
   var llData = req.param('latitude') + ',' + req.param('longitude');
 
   yelp.search({term: "food", ll: llData, limit: 3, sort:2}, function(error, data) {
-    
-    res.json([].push(data));
+    res.json(data);
   });
 }
 
