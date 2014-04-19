@@ -12,9 +12,19 @@
 	</div>
 	
 	<h4 class='animated fadeIn'>Restaurants</h4>
+	<div class='container-fluid'>
+		<div class='col-md-5 animated bounceInLeft panel panel-default' ng-repeat='rest in yelpData.businesses'>
+			<div class='panel-body br-primary active'>
+				<span><img class='img-circle' style='width:50px' ng-src='{{ rest.image_url }}'/></span>
 
-	<div ng-repeat='rest in yelpData.businesses'>
-		<div><img ng-src='{{ rest.rating_img_url }}'/>{{ rest.name }}</div>
+				<span class='br-primary active'>
+					{{ rest.name }} <br/>
+					{{ rest.display_phone }}&nbsp; {{ rest.distance | number:2 }} Meters<br/>
+					{{ rest.location.city }} <br/>
+					<img ng-src='{{ rest.rating_img_url_small }}'/>
+				</span>	
+			</div>
+		</div>
 	</div>
 
 	<!-- 	
