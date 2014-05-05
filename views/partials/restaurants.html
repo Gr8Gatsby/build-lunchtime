@@ -6,36 +6,25 @@
 	
 	<div class='panel panel-default' ng-click='steps = !steps'>
 		<div class='panel-body'>
-			<span ng-show='steps' class='btn btn-default pull-right'> <img src='img/tires.png'/> show miles</span>
+			<span ng-show='steps' class='btn btn-default pull-right'> <img src='img/tires.png'/> show meters</span>
 			<span ng-show='!steps' class='btn btn-default pull-right'> <img src='img/steps.png'/> show steps</span>
 		</div>
 	</div>
 	
 	<h4 class='animated fadeIn'>Restaurants</h4>
 	<div class='container-fluid'>
-		<div class='col-md-5 animated bounceInLeft panel panel-default' ng-repeat='rest in yelpData.businesses'>
+		<div class='col-md-5 animated bounceInLeft panel panel-default' ng-repeat='rest in yelpData.businesses | orderBy:"distance"'>
 			<div class='panel-body br-primary active'>
 				<span><img class='img-circle' style='width:50px' ng-src='{{ rest.image_url }}'/></span>
-
 				<span class='br-primary active'>
 					{{ rest.name }} <br/>
-					{{ rest.display_phone }}&nbsp; <span ng-show='steps' class='pull-right'>{{ rest.distance * 2350 | number:0 }} steps</span>
-			<span ng-show='!steps' class='pull-right'>{{ rest.distance | number:2 }} miles</span>Meters<br/>
+					<a ng-href="tel:{{ rest.display_phone }}">{{ rest.display_phone }}</a>&nbsp; <span ng-show='steps' class='pull-right'>{{ rest.distance | steps:"m" | number:0 }} steps</span>
+				<span ng-show='!steps' class='pull-right'>{{ rest.distance | number:2 }} meters</span><br/>
 					{{ rest.location.city }} <br/>
 					<img ng-src='{{ rest.rating_img_url_small }}'/>
 				</span>	
 			</div>
 		</div>
 	</div>
-
-	<!-- 	
-	<div class='animated bounceInLeft panel panel-default' ng-repeat='rest in restaurants | orderBy:"-distance":true'>
-		<div class='panel-body bg-primary active'>
-			<span>{{ rest.name }}</span>
-			<span ng-show='steps' class='pull-right'>{{ rest.distance * 2350 | number:0 }} steps</span>
-			<span ng-show='!steps' class='pull-right'>{{ rest.distance | number:2 }} miles</span>
-		</div>
-	</div> 
-	-->
 	<a href='/media'>Credits</a>
 </div>

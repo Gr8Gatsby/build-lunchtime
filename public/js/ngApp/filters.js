@@ -42,4 +42,20 @@ angular.module('lunchtime.filters',[]).
 
   		return timeString;
   	};
+  }).filter('steps', function() {
+    return function(input, units) {
+          
+          var averageStepsPerMile = 2514;
+
+          if(units === 'mi'){
+              return input * averageStepsPerMile;    // miles
+          } else if (units === 'km') {
+              return input * (averageStepsPerMile / 1.609344);   // kilometers (default)
+          } else if (units === 'ft') {
+              return input * (averageStepsPerMile / 5280)
+          } else if (units === 'm') {
+              return input * (averageStepsPerMile / 1609.344);
+          }
+      
+      };
   });

@@ -26,7 +26,7 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
 				var loc = $scope.restaurants[each].location;
 				// if user location is available
 				if(loc) {
-					$scope.restaurants[each].distance = $scope.getDistance(loc, $scope.position, 'mi');
+					$scope.restaurants[each].distance = $scope.getDistance(loc, $scope.position, 'm');
 				}
 				else {
 					$scope.restaurants[each].distance = 0;	
@@ -57,6 +57,8 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
             R = 6371;   // kilometers (default)
         } else if (units === 'ft') {
             R = 20903520;
+        } else if (units === 'm') {
+            R = 6378100;
         }
         var dLat = (destinationLocation.latitude - originLocation.latitude).toRad();
         var dLon = (destinationLocation.longitude - originLocation.longitude).toRad();
