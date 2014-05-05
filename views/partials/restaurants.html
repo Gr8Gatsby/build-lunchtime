@@ -19,7 +19,8 @@
 
 				<span class='br-primary active'>
 					{{ rest.name }} <br/>
-					{{ rest.display_phone }}&nbsp; {{ rest.distance | number:2 }} Meters<br/>
+					{{ rest.display_phone }}&nbsp; <span ng-show='steps' class='pull-right'>{{ rest.distance * 2350 | number:0 }} steps</span>
+			<span ng-show='!steps' class='pull-right'>{{ rest.distance | number:2 }} miles</span>Meters<br/>
 					{{ rest.location.city }} <br/>
 					<img ng-src='{{ rest.rating_img_url_small }}'/>
 				</span>	
