@@ -1,6 +1,6 @@
 "use strict"
 
-var app = angular.module('lunchtimeApp', ['ngRoute', 'lunchtime.filters']);
+var app = angular.module('lunchtimeApp', ['ngRoute', 'lunchtime.filters', 'angularAddToHomeScreen']);
 
 app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider
