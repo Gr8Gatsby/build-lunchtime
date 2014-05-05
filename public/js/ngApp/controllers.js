@@ -3,6 +3,7 @@
 app.controller('lunchtimeAppController', function($scope, AppDataService) {
 	console.log('lunchtimeAppController started...');
 	function init() {
+		window.addToHomescreen();
 		$scope.steps = false;
 		// load the restaurant data from the factory into the view model
 		AppDataService.getRestaurants().success(function(data){
