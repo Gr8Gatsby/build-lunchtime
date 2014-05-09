@@ -1,6 +1,44 @@
 "use strict"
 
 var app = angular.module('lunchtimeApp', ['ngRoute', 'lunchtime.filters', 'angularAddToHomeScreen']);
+app.directive('heightSelector', function () {
+        return { 
+            restrict: 'A',
+            template: "<span ng-repeat='inch in inches' ng-class='inch'>" +
+                "<span ng-click=\"toggle($index)\"><img ng-class='inch' ng-style=\"{'height':{{$index * factor + 25}}+'px','vertical-align':'bottom'}\" src='img/person.png'/></span>" +
+                '</span>'
+            ,
+            scope: {
+                heightValue: '=',
+                max: '=',
+                factor: '=',
+                onHeightChange: '&'
+            },
+            link: function (scope, elem, attrs) {
+                var updateHeight = function () {
+                    scope.inches = [];
+
+                    for (var i = 0; i < scope.max; i++) {
+                        scope.inches.push({ selected: i < scope.heightValue });
+                    }
+                };
+                console.log("Recognized the height-selector directive");
+            
+                scope.$watch('heightValue', function (oldVal, newVal) {
+                    if (newVal) {
+                        updateHeight();
+                    } 
+                });
+
+                scope.toggle = function (index) {
+                    scope.heightValue = index + 1;
+                    scope.onHeightChange({position:index});
+                };
+                // Set Default
+                scope.heightValue = 3;
+            }
+        }
+    });
 
 app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider

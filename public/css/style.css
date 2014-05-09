@@ -3,7 +3,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
+a {     
   color: #00B7FF;
 }
 
@@ -13,4 +13,14 @@ a {
 
 .attrButton {
 	max-width:300px;
+}
+
+.selected {
+    color: #B0470A;
+    background-color:red;
+    vertical-align:bottom;
+}
+
+.pad {
+	padding:15px;
 }

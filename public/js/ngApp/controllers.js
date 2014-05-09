@@ -3,8 +3,9 @@
 app.controller('lunchtimeAppController', function($scope, AppDataService) {
 	console.log('lunchtimeAppController started...');
 	function init() {
-		
+		$scope.averageStepsPerMile = 2514;
 		$scope.steps = false;
+
 		// load the restaurant data from the factory into the view model
 		AppDataService.getRestaurants().success(function(data){
 			$scope.restaurants = data;
@@ -44,6 +45,13 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
 
 	init();
 
+	$scope.heightChange = function(position) {
+		console.log(position);
+		var stepsArray = [2601,2433,2286,2125,2011];
+    	$scope.averageStepsPerMile = stepsArray[position];
+    	console.log($scope.averageStepsPerMile);
+	};
+
 	// Calculate Distance between the user and a restaurant
 	$scope.getDistance = function(originLocation, destinationLocation, units) {
         if(!originLocation) {
@@ -53,7 +61,7 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
         var R = 0;
 
         if(units === 'mi'){
-            R = 3959;    // miles
+            R = 3959;   // miles
         } else if (units === 'km') {
             R = 6371;   // kilometers (default)
         } else if (units === 'ft') {
@@ -70,5 +78,5 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
         var d = R * c;
 
         return d;
-    }
+    };
 });

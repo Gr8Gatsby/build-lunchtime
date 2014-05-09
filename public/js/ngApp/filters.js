@@ -43,10 +43,8 @@ angular.module('lunchtime.filters',[]).
   		return timeString;
   	};
   }).filter('steps', function() {
-    return function(input, units) {
+    return function(input, units, averageStepsPerMile) {
           
-          var averageStepsPerMile = 2514;
-
           if(units === 'mi'){
               return input * averageStepsPerMile;    // miles
           } else if (units === 'km') {

@@ -4,21 +4,23 @@
 		<h4 ng-if='!timeUntilLunch' class='alert alert-danger'>{{ timeAfterLunch | time }} after lunch.</h4>
 	</div>
 	
-	<div class='panel panel-default' ng-click='steps = !steps'>
+	
+	<div class='panel panel-default' >
 		<div class='panel-body'>
-			<span ng-show='steps' class='btn btn-default pull-right'> <img src='img/tires.png'/> show meters</span>
-			<span ng-show='!steps' class='btn btn-default pull-right'> <img src='img/steps.png'/> show steps</span>
+			<div height-selector ng-show='steps' height-value="height" max="5" factor="10" on-height-change='heightChange(position)'></div>
+			<span ng-click='steps = !steps' ng-show='steps' class='btn btn-default pull-right'> <img src='img/tires.png'/> show meters</span>
+			<span ng-click='steps = !steps' ng-show='!steps' class='btn btn-default pull-right'> <img src='img/steps.png'/> show steps</span>
 		</div>
 	</div>
 	
 	<h4 class='animated fadeIn'>Restaurants</h4>
 	<div class='container-fluid'>
-		<div class='col-md-5 animated bounceInLeft panel panel-default' ng-repeat='rest in yelpData.businesses | orderBy:"distance"'>
+		<div class='col-md-4 animated bounceInLeft panel panel-default' ng-repeat='rest in yelpData.businesses | orderBy:"distance"'>
 			<div class='panel-body br-primary active'>
 				<span><img class='img-circle' style='width:50px' ng-src='{{ rest.image_url }}'/></span>
 				<span class='br-primary active'>
 					{{ rest.name }} <br/>
-					<a ng-href="tel:{{ rest.display_phone }}">{{ rest.display_phone }}</a>&nbsp; <span ng-show='steps' class='pull-right'>{{ rest.distance | steps:"m" | number:0 }} steps</span>
+					<a ng-href="tel:{{ rest.display_phone }}">{{ rest.display_phone }}</a>&nbsp; <span ng-show='steps' class='pull-right'>{{ rest.distance | steps:"m":averageStepsPerMile | number:0 }} steps</span>
 				<span ng-show='!steps' class='pull-right'>{{ rest.distance | number:2 }} meters</span><br/>
 					{{ rest.location.city }} <br/>
 					<img ng-src='{{ rest.rating_img_url_small }}'/>
