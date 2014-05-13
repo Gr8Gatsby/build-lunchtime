@@ -8,7 +8,6 @@ var yelp_consumer_key = nconf.get("yelp_consumer_key");
 var yelp_consumer_secret = nconf.get("yelp_consumer_secret");
 var yelp_token = nconf.get("yelp_token");
 var yelp_token_secret = nconf.get("yelp_token_secret");
-//console.log(nconf.get("yelp_consumer_key"));
 
 // Create the Yelp object
 var yelp = require('../public/js/yelp/yelp-server').createClient({  

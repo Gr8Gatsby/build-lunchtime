@@ -19,7 +19,7 @@
 			<div class='panel-body br-primary active'>
 				<span><img class='img-circle' style='width:50px' ng-src='{{ rest.image_url }}'/></span>
 				<span class='br-primary active'>
-					{{ rest.name }} <br/>
+					<a ng-href="/details/{{rest.id}}">{{ rest.name }}</a> <br/>
 					<a ng-href="tel:{{ rest.display_phone }}">{{ rest.display_phone }}</a>&nbsp; <span ng-show='steps' class='pull-right'>{{ rest.distance | steps:"m":averageStepsPerMile | number:0 }} steps</span>
 				<span ng-show='!steps' class='pull-right'>{{ rest.distance | number:2 }} meters</span><br/>
 					{{ rest.location.city }} <br/>
