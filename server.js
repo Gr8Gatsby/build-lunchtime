@@ -1,4 +1,4 @@
-/**
+	/**
  * Module dependencies.
  */
 var express = require('express');
@@ -34,7 +34,11 @@ app.get('/preferences', api.preferences);
 app.get('/mediaAttribution', api.mediaAttribution);
 app.get('/yelpSearch/:latitude/:longitude', api.yelpSearch);
 app.get('/tile', api.tile);
+app.get('/authorizeFitbit', api.authorizeFitbit)
+app.get('/fitbitCallback', api.fitbitCallback);
+
 app.get('*', routes.index);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

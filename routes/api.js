@@ -10,6 +10,7 @@ var yelp_token = nconf.get("yelp_token");
 var yelp_token_secret = nconf.get("yelp_token_secret");
 //console.log(nconf.get("yelp_consumer_key"));
 
+// Create the Yelp object
 var yelp = require('../public/js/yelp/yelp-server').createClient({  
   consumer_key: nconf.get("yelp_consumer_key"),
   consumer_secret: nconf.get("yelp_consumer_secret"),
@@ -18,6 +19,40 @@ var yelp = require('../public/js/yelp/yelp-server').createClient({
   ssl: true
 });
 
+// Create the FitBit object
+var FitbitApiClient = require('../public/js/fitbit-api-client'),
+    fitbitClient = new FitbitApiClient(nconf.get("fitbit_consumer_key"), nconf.get("fitbit_consumer_secret"));
+
+var fitbitRequestTokenSecrets = {};
+
+exports.authorizeFitbit = function(req, res) {
+  fitbitClient.getRequestToken().then(function(results) {
+    var token = results[0],
+        secret = results[1];
+    fitbitRequestTokenSecrets[token] = secret;
+    res.redirect(nconf.get("fitbit_authorize_url") + "?oauth_token=" + token);
+  }, function (error) {
+    res.send(error);
+  });
+};
+
+exports.fitbitCallback = function(req, res) {
+  var token = req.query.oauth_token,
+      secret = fitbitRequestTokenSecrets[token],
+      verifier = req.query.oauth_verifier;
+
+  fitbitClient.getAccessToken(token, secret, verifier).then(function(results) {
+    var accessToken = results[0],
+        accessTokenSecret = results[1],
+        userId = results[2].encoded_user_id;
+    return fitbitClient.requestResource("/profile.json", "GET", accessToken, accessTokenSecret).then(function (results) {
+       var response = results[0];
+       res.send(response);
+    });
+  }, function (error) {
+    res.send(error);
+  });
+}
 exports.tile = function(req, res) {
 	res.sendfile(path.join(__dirname, '../public/xml/tile.xml'));
 };
