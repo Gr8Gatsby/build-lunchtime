@@ -1,16 +1,16 @@
 <tile>
   <visual version="2">
     <binding template="TileSquare150x150PeekImageAndText04" fallback="TileSquarePeekImageAndText04">
-      <image id="1" src="https://build-lunchtime.azurewebsites.net/img/square150x150logo.png" alt="It's lunchtime! square tile preview"/>
+      <image id="1" src="https://teched-lunchtime.azurewebsites.net/img/square150x150logo.png" alt="It's lunchtime! square tile preview"/>
       <text id="1">It's lunchtime</text>
       <text id="2">Don't forget to eat</text>
     </binding>  
     <binding template="TileWide310x150ImageAndText01" fallback="TileWideImageAndText01">
-      <image id="1" src="https://build-lunchtime.azurewebsites.net/img/wide310x150logo.png" alt="It's lunchtime! wide tile preview"/>
+      <image id="1" src="https://teched-lunchtime.azurewebsites.net/img/wide310x150logo.png" alt="It's lunchtime! wide tile preview"/>
       <text id="1">It's lunchtime! Don't forget to eat</text>
     </binding>  
     <binding template="TileSquare310x310ImageAndText02">
-      <image id="1" src="https://build-lunchtime.azurewebsites.net/img/square310x310logo.jpg" alt="It's lunchtime! large tile preview"/>
+      <image id="1" src="https://teched-lunchtime.azurewebsites.net/img/square310x310logo.jpg" alt="It's lunchtime! large tile preview"/>
       <text id="1">It's lunchtime</text>
       <text id="2">Don't forget to eat</text>
     </binding>  
