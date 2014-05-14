@@ -48,5 +48,15 @@ app.factory('AppDataService', function($http, $q, $window, $rootScope) {
         return yelpData;
     }
 
+    factory.setID = function(id) {
+        console.log("setting ID in factory");
+        $rootScope.id = id;
+    }
+
+    factory.getID = function () {
+        console.log("returning ID from Factory");
+        return $rootScope.id || 1;
+    }
+
 	return factory;
 });

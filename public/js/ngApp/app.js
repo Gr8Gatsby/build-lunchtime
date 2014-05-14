@@ -48,7 +48,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider, $loca
 	}).when('/media', {
 		controller:'lunchtimeAppController',
 		templateUrl: '/partials/mediaAttribution'	
-	}).when('/details/:id', {
+	}).when('/details', {
         controller:'lunchtimeAppController',
         templateUrl: '/partials/details'
     });

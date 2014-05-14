@@ -1,11 +1,14 @@
 
 // View model for the lunchtime App
-app.controller('lunchtimeAppController', function($scope, AppDataService) {
+app.controller('lunchtimeAppController', function($scope, AppDataService, $rootScope) {
 	console.log('lunchtimeAppController started...');
 	function init() {
 		$scope.averageStepsPerMile = 2514;
 		$scope.steps = false;
 
+		// AppDataService.getID().success(function(data) {
+		// 	$scope.id = data;
+		// });
 		// load the restaurant data from the factory into the view model
 		AppDataService.getRestaurants().success(function(data){
 			$scope.restaurants = data;
@@ -51,6 +54,12 @@ app.controller('lunchtimeAppController', function($scope, AppDataService) {
     	$scope.averageStepsPerMile = stepsArray[position];
     	console.log($scope.averageStepsPerMile);
 	};
+
+	$scope.setID = function(id) {
+		//$rootScope.id = id;
+		AppDataService.setID(id);
+		//console.log($rootScope.id);
+	}
 
 	// Calculate Distance between the user and a restaurant
 	$scope.getDistance = function(originLocation, destinationLocation, units) {
