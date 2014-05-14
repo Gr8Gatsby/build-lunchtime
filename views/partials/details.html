@@ -6,12 +6,14 @@
 	<a href='/'>Back</a>
 	<h4>Restaurant Details</h4>
 	<div ng-repeat="rest in yelpData.businesses" ng-show="$index == 1">
-	<img ng-src="{{ rest.image_url }}"/>
+	<!-- <img ng-src="{{ rest.image_url }}"/> -->
 	<h1>{{rest.name}}</h1>
-	<a ng-href="tel:{{ rest.display_phone }}">{{ rest.display_phone }}</a>&nbsp; <span ng-show='steps' class='pull-right'>{{ rest.distance | steps:"m":averageStepsPerMile | number:0 }} steps</span>
+	<h1><a ng-href="tel:{{ rest.display_phone }}">{{ rest.display_phone }}</a></h1>&nbsp; <span ng-show='steps' class='pull-right'>{{ rest.distance | steps:"m":averageStepsPerMile | number:0 }} steps</span>
+	<h1>
 				<span ng-show='!steps' class='pull-right'>{{ rest.distance | number:2 }} meters</span><br/>
-					{{ rest.location.city }} <br/>
-					<img ng-src='{{ rest.rating_img_url_small }}'/>
+					<h1>{{ rest.location.city }}</h1> <br/>
+					<!-- <img ng-src='{{ rest.rating_img_url }}'/> -->
 				</span>	
+				</h1>
 	</div>
 </div>
