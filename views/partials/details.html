@@ -3,17 +3,29 @@
 		<h4 ng-if='timeUntilLunch' class='alert alert-success'>{{ timeUntilLunch | time }} until lunch.</h4>
 		<h4 ng-if='!timeUntilLunch' class='alert alert-danger'>{{ timeAfterLunch | time }} after lunch.</h4>
 	</div>
+
+	<div class='panel panel-default' >
+		<div class='panel-body'>
+			<div height-selector ng-show='steps' height-value="height" max="5" factor="10" on-height-change='heightChange(position)'></div>
+			<span ng-click='steps = !steps' ng-show='steps' class='btn btn-default pull-right'> <img src='img/tires.png'/> show meters</span>
+			<span ng-click='steps = !steps' ng-show='!steps' class='btn btn-default pull-right'> <img src='img/steps.png'/> show steps</span>
+		</div>
+	</div>
+
 	<a href='/'>Back</a>
 	<h4>Restaurant Details</h4>
 	<div ng-repeat="rest in yelpData.businesses" ng-show="$index == 1">
 	<img ng-src="{{ rest.image_url }}"/>
-	<h1>{{rest.name}}</h1>
-	<h1><a ng-href="tel:{{ rest.display_phone }}">{{ rest.display_phone }}</a></h1>&nbsp; <span ng-show='steps' class='pull-right'>{{ rest.distance | steps:"m":averageStepsPerMile | number:0 }} steps</span>
-	<h1>
-				<span ng-show='!steps' class='pull-right'>{{ rest.distance | number:2 }} meters</span><br/>
-					<h1>{{ rest.location.city }}</h1> <br/>
-					<img ng-src='{{ rest.rating_img_url }}'/>
-				</span>	
-				</h1>
+	<h4>{{rest.name}}</h4>
+	<h4><a ng-href="tel:{{ rest.display_phone }}">{{ rest.display_phone }}</a></h4>
+	<h3><span ng-show='steps'>{{ rest.distance | steps:"m":averageStepsPerMile | number:0 }} steps</span></h3>
+	<h3>
+		<span ng-show='!steps'>{{ rest.distance | number:2 }} meters</span>
+	</h3>
+	<h4>{{ rest.location.city }}</h4>
+
+	<img ng-src='{{ rest.rating_img_url }}'/>
+	</span>	
+				</h4>
 	</div>
 </div>
