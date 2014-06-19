@@ -13,7 +13,7 @@
 	
 	<h4 class='animated fadeIn'>Restaurants</h4>
 
-	<div class='animated bounceInLeft panel panel-default' ng-repeat='rest in restaurants | orderBy:"-distance":true'>
+	<div class='animated bounceInRight panel panel-default' ng-repeat='rest in restaurants | orderBy:"-distance":true'>
 		<div class='panel-body bg-primary active'>
 			<span>{{ rest.name }}</span>
 			<span ng-show='steps' class='pull-right'>{{ rest.distance * 2350 | number:0 }} steps</span>
